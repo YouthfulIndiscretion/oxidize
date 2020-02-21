@@ -1,0 +1,11 @@
+install:
+  - appveyor DownloadFile https://win.rustup.rs/ -FileName rustup-init.exe
+  - rustup-init -yv 
+  - set PATH=%PATH%;%USERPROFILE%\.cargo\bin
+  - rustc -vV
+  - cargo -vV
+  - cargo install --version "~0.4" pyoxidizer
+  - cd app
+  - pyoxidizer build --release
+
+build: false
